@@ -1,0 +1,1 @@
+spark-submit --master local[2] --jars sqlite-jdbc-3.27.2.jar pySparksparkSubmit.py
