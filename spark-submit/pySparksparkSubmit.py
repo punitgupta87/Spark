@@ -1,7 +1,5 @@
 ## A simple spark submit example
 
-
-
 from pyspark.sql import SparkSession
 
 sparkX = SparkSession.builder.appName("pySparksqLite_test").getOrCreate()
