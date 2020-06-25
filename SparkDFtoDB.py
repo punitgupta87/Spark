@@ -1,3 +1,4 @@
+#Convert Spark Dataframe to a database 
 from pyspark.sql import SparkSession, Row
 from pyspark.sql import dataframe
 from pyspark.sql.types import *
@@ -19,6 +20,8 @@ schema = StructType(field)
 spark.conf.set("spark.sql.shuffle.partitions", "5")
 spark.sql("""Create database grouped2""")
 spark.catalog.setCurrentDatabase("grouped2")
+
+#Create a table in grouped database
 spark.createDataFrame(spark.sparkContext.emptyRDD(), schema).write.mode("overwrite").saveAsTable("aggregates")
 # a partition by column can also be specified in above statement before saveastable
 spark.sql("""insert into aggregates values ('Punit',2)""")
