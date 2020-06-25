@@ -20,7 +20,7 @@ print(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
 # Create a spark Session
 sparkp = SparkSession.builder.appName("partitions").master("local[*]").getOrCreate()
 # Load Data in a dataframe and partition it
-chicago=sparkp.read.csv("C:/Users/pg186028/Documents/DataVisualization/chicago.csv"
+chicago=sparkp.read.csv("chicago.csv"
                 , inferSchema=True, header=True, nullValue="XX")
 chicago2 = chicago.repartition(8, f.col("Department"))
 
